@@ -168,6 +168,5 @@ int main(void){
   printf("Get index 1: %d\n", get_indx(head, 1));
   printf("Get Tail: %d\n", get_tail(head));
   display_list(head);
-  printf("EXIT_SUCCESS\n");
   return EXIT_SUCCESS;
 }
