@@ -138,35 +138,3 @@ void display_list(node_t * head) { // Display the List.
   }
   printf("NULL\n");
 }
-
-int main(void){
-  node_t * head;
-  head = (node_t *) malloc(sizeof(node_t));
-  if (head == NULL){
-    return EXIT_FAILURE;
-  }
-  head->value = 9;
-  head->next = NULL;
-  display_list(head);
-  printf("Inserting Items!\n");
-  insert_tail(head, 43);
-  insert_tail(head, 2);
-  insert_head(&head, 1);
-  insert_head(&head, 0);
-  display_list(head);
-  printf("inserting %d in index %d\n", 100, 2);
-  insert_indx(head, 100, 2);
-  display_list(head);
-  printf("Removing the Last item!\n");
-  int x = remove_tail(head);
-  printf("The value is: %d\n",x);
-  display_list(head);
-  int y = remove_indx(head, 1);
-  printf("Removing index 1 a %d \n", y);
-  display_list(head);
-  printf("Get index 0: %d\n", get_indx(head, 0));
-  printf("Get index 1: %d\n", get_indx(head, 1));
-  printf("Get Tail: %d\n", get_tail(head));
-  display_list(head);
-  return EXIT_SUCCESS;
-}
