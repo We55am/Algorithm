@@ -21,4 +21,5 @@ int get_indx(node_t * head, int indx);
 int get_head(node_t * head);
 int get_tail(node_t * tail);
 void display_list(node_t * head);
+int getSize(node_t * head);
 #endif

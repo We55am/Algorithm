@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -std=gnu99 -pedantic -Wall -Werror
 
-node: node.o
-	$(CC) $(CFLAGS) -o node.o
+main: main.c node.o
+	$(CC) $(CFLAGS) -o main main.c node.o
 
 node.o: node.c
 	$(CC) $(CFLAGS) -c node.c

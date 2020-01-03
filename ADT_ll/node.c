@@ -129,6 +129,18 @@ int get_tail(node_t * head) {
   return current->value;
 }
 
+int getSize(node_t * head) {
+  int cunt = 0;
+  if (head == NULL) return cunt;
+  node_t * current = head;
+  cunt++;
+  while (current->next != NULL) {
+    cunt++;
+    current = current->next;
+  }
+  return cunt;
+}
+
 void display_list(node_t * head) { // Display the List.
   node_t * current = head;
   printf("Displaying the LinkedList:\n");
