@@ -1,13 +1,8 @@
 CC = gcc
 CFLAGS = -std=gnu99 -Wall -Werror -pedantic
+linkedPATH = ../ADT_linked-list/linked-list.c
 
-stack: stack.o
-	$(CC) $(CFLAGS) -o stack stack.o
-
+test: main.c stack.o
+	$(CC) $(CFLAGS) -o test stack.o main.c $(linkedPATH)
 stack.o: stack.c
-	$(CC) $(CFLAGS) -c stack.c
-
-.Phony = clean
-
-clean:
-	rm stack *.o *~
+	$(CC) $(CFLAGS) -c stack.c $(linkedPATH)

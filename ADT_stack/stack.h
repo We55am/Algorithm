@@ -1,20 +1,19 @@
-#ifndef STACK_H
+#ifndef stack_H
 #define STACK_H
+
 #include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
+#include <string.h>
+#include "../ADT_linked-list/linked-list.h"
 
-typedef struct stack_tag {
-  int topOfStack;
-  int * theArray;
-  int size;
-} stack_t;
+typedef linkedList Stack;
 
-stack_t * newStack(int maxSize);
-void push(stack_t * stack, int val);
-int pop(stack_t * stack);
-bool isempty(stack_t * stack);
-bool isFull(stack_t * stack);
-int getSize(stack_t * stack);
-void display_stack(stack_t * stack);
+#define stack_init list_init
+#define stack_destroy list_destroy
+
+int stack_push(Stack *stack, const void *data);
+int stack_pop(Stack *stack, void **data);
+
+#define stack_peek(stack) ((stack)->head == NULL ? Null : (stack)->data)
+#define stack_size list_size
+
 #endif
