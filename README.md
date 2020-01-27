@@ -17,4 +17,6 @@ Some Variables:
 - objects, OBJECTS, objs, OBJS, obj or OBJ (standard practice): vaiable contains all object files.
 
 
--- reference: GNU make manual https://www.gnu.org/software/make/manual/
+References:
+1- GNU make manual https://www.gnu.org/software/make/manual/
+2- Kyle Loudon. 1999. Mastering algorithms with c (1st. ed.). O’Reilly Media, Inc.
