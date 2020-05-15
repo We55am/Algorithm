@@ -11,6 +11,8 @@
    0  if  key1 <= key2
 */ 
 void insertionSort(List *list, int (*compare)(const void *key1, const void *key2));
+void quickSort(List *list, int (*compare)(const void *key1, const void *key2));
+
 int def_compare_int(const void *key1, const void *key2);
 
 #endif

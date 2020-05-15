@@ -5,7 +5,9 @@
 #include "sort.h"
 #include "list.h"
 
+
 static void ins_sort(List **list, node **head, node *new_node, int (*compare)(const void *key1, const void *key2));
+static node *partation(node *head, node *end, node **newHead, node **newEnd)
 
 void insertionSort(List *list, int (*compare)(const void *key1, const void *key2)) {
 
@@ -43,7 +45,43 @@ static void ins_sort(List **list, node **head, node *new_node, int (*compare)(co
     }
 }
 
+void quickSort(List *list, int (*compare)(const void *key1, const void *key2)) {
+  
+}
 
+static node *partation(node *head, node *end, node **newHead, node **newEnd, int (*compare)(const void *key1, const void *key2)) {
+  node *pivot = end;
+  node *prev = NULL;
+  node *tail = pivot;
+  node *current = head;
+  while(current != pivote)
+    {
+      if (compare(pivot->data, current->data))
+	{
+	  if ((*newHead) == NULL)
+	    (*newHead) = current;
+	  prev = current;
+	  current = current->next;
+	}
+      else
+	{
+	  if (prev)
+	    prev->next = current->next;
+	  node *temp = current->next;
+	  current->next = NULL;
+	  tail->next = current;
+	  tail = current;
+	  current = temp;
+	}
+    }
+
+  if ((*newHead) == NULL)
+    (*newHead) = pivote;
+  (*newEnd) = tail;
+
+  return pivote;
+  
+}
 int def_compare_int(const void *key1, const void *key2) {
   if ((*(int*)(key1)) > (*(int*)(key2)))
     {
