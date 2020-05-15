@@ -7,3 +7,10 @@ Complexity:	 **O(n<sup>2</sup>)**
 # Quick Sort
 
 Quick sort is a divide and conquer algorithm, it is more efficient in medium and large sets of data than insertion sort.
+
+
+
+# References
+
+[GeeksforGeeks](https://www.geeksforgeeks.org/)
+

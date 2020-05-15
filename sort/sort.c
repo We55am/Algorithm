@@ -49,6 +49,34 @@ void quickSort(List *list, int (*compare)(const void *key1, const void *key2)) {
   
 }
 
+node *quickSortRecur(node *head, node *end) 
+{
+  
+    if (!head || head == end) 
+        return head; 
+  
+    node *newHead = NULL, *newEnd = NULL; 
+  
+    node *pivot = partition(head, end, &newHead, &newEnd); 
+   
+    if (newHead != pivot) 
+    { 
+        node *tmp = newHead; 
+        while (tmp->next != pivot) 
+            tmp = tmp->next; 
+        tmp->next = NULL;
+	
+        newHead = quickSortRecur(newHead, tmp);
+	
+        tmp = getTail(newHead); 
+        tmp->next = pivot; 
+    }
+    
+    pivot->next = quickSortRecur(pivot->next, newEnd); 
+  
+    return newHead; 
+}
+
 static node *partation(node *head, node *end, node **newHead, node **newEnd, int (*compare)(const void *key1, const void *key2)) {
   node *pivot = end;
   node *prev = NULL;
