@@ -96,3 +96,10 @@ void list_display(List *list) {
   printf("NULL \n");
   return;
 }
+
+int list_append(List *list, const void *data) {
+  if (list_ins_next(list, list_tail(list), data) == -1)
+    return -1;
+  else
+    return 0;
+}

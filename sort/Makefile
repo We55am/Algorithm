@@ -1,5 +1,5 @@
 CC = gcc
-OBJS = list.o test.c
+OBJS = list.o sort.o test.c
 CFLAGS = -std=gnu99 -Wall -Werror -pedantic
 .RECIPEPREFIX = >
 
@@ -12,6 +12,9 @@ test.o : test.c
 list.o : list.c
 > $(CC) $(CFLAGS) -c list.c -lm
 
+sort.o : sort.c
+> $(CC) $(CFLAGS) -c sort.c -lm
+
 clean:
-> rm -rf *.o *~
+> rm -rf *.o *~ .#* *#
 

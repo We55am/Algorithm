@@ -10,7 +10,6 @@ typedef struct node_tag{
 
 typedef struct List_tag{
   int size;
-  int (*match)(const void *key1, const void *key2);
   void (*destroy)(void *data);
   node *head;
   node *tail;  
@@ -21,6 +20,7 @@ void list_init(List *list, void (*destroy)(void *data));
 void list_destroy(List *list);
 int list_ins_next(List *list, node *node, const void *data);
 int list_rm_next(List *list, node *node, void **data);
+int list_append(List *list, const void *data);
 void list_display(List *list);
 
 #define list_size(list) ((list)->size)
