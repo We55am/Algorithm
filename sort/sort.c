@@ -7,7 +7,9 @@
 
 
 static void ins_sort(List **list, node **head, node *new_node, int (*compare)(const void *key1, const void *key2));
-static node *partation(node *head, node *end, node **newHead, node **newEnd)
+static node *partition(node *head, node *end, node **newHead, node **newEnd, int (*compare)(const void *key1, const void *key2));
+static node *quickSortRecur(node *head, node *end, int (*compare)(const void *key1, const void *key2));
+static node *getTail(node *cur);
 
 void insertionSort(List *list, int (*compare)(const void *key1, const void *key2)) {
 
@@ -46,10 +48,11 @@ static void ins_sort(List **list, node **head, node *new_node, int (*compare)(co
 }
 
 void quickSort(List *list, int (*compare)(const void *key1, const void *key2)) {
-  
+  list_head(list) = quickSortRecur(list_head(list), list_tail(list), compare);
+  list_tail(list) = getTail(list_head(list));
 }
 
-node *quickSortRecur(node *head, node *end) 
+static node *quickSortRecur(node *head, node *end, int (*compare)(const void *key1, const void *key2))
 {
   
     if (!head || head == end) 
@@ -57,7 +60,7 @@ node *quickSortRecur(node *head, node *end)
   
     node *newHead = NULL, *newEnd = NULL; 
   
-    node *pivot = partition(head, end, &newHead, &newEnd); 
+    node *pivot = partition(head, end, &newHead, &newEnd, compare); 
    
     if (newHead != pivot) 
     { 
@@ -66,23 +69,23 @@ node *quickSortRecur(node *head, node *end)
             tmp = tmp->next; 
         tmp->next = NULL;
 	
-        newHead = quickSortRecur(newHead, tmp);
+        newHead = quickSortRecur(newHead, tmp, compare);
 	
         tmp = getTail(newHead); 
         tmp->next = pivot; 
     }
     
-    pivot->next = quickSortRecur(pivot->next, newEnd); 
+    pivot->next = quickSortRecur(pivot->next, newEnd, compare); 
   
     return newHead; 
 }
 
-static node *partation(node *head, node *end, node **newHead, node **newEnd, int (*compare)(const void *key1, const void *key2)) {
+static node *partition(node *head, node *end, node **newHead, node **newEnd, int (*compare)(const void *key1, const void *key2)) {
   node *pivot = end;
   node *prev = NULL;
   node *tail = pivot;
   node *current = head;
-  while(current != pivote)
+  while(current != pivot)
     {
       if (compare(pivot->data, current->data))
 	{
@@ -104,10 +107,10 @@ static node *partation(node *head, node *end, node **newHead, node **newEnd, int
     }
 
   if ((*newHead) == NULL)
-    (*newHead) = pivote;
+    (*newHead) = pivot;
   (*newEnd) = tail;
 
-  return pivote;
+  return pivot;
   
 }
 int def_compare_int(const void *key1, const void *key2) {
@@ -117,3 +120,10 @@ int def_compare_int(const void *key1, const void *key2) {
     }
   return 0;
 }
+
+static node *getTail(node *cur) 
+{
+  while (cur != NULL && cur->next != NULL)
+    cur = cur->next;
+  return cur; 
+} 
