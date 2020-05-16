@@ -10,6 +10,10 @@ Quick sort is a divide and conquer algorithm, it is more efficient in medium and
 
 
 
+# Results 
+
+![](./insertion_sort_test.png)
+
 # References
 
 [GeeksforGeeks](https://www.geeksforgeeks.org/)
