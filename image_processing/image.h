@@ -6,7 +6,10 @@
 #include <math.h>
 #include <string.h>
 
+#include "../sort/sort.h"
+
 #define SIZE 5
+#define SIGMA 1.0
 
 typedef struct _image{
     int row;

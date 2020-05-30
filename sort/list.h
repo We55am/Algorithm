@@ -22,6 +22,7 @@ int list_ins_next(List *list, node *node, const void *data);
 int list_rm_next(List *list, node *node, void **data);
 int list_append(List *list, const void *data);
 void list_display(List *list);
+node list_getindex(List *list, int indx);
 
 #define list_size(list) ((list)->size)
 #define list_head(list) ((list)->head)

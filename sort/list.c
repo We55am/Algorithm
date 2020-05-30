@@ -4,6 +4,17 @@
 
 #include "list.h"
 
+node list_getindex(List *list, int indx)
+{
+  node *current = list_head(list);
+
+  for(int i = 0; i < indx; i++)
+  {
+    current = current->next;
+  }
+  return (*current);
+}
+
 void list_init(List *list, void (*destroy)(void *data)) {
   list_size(list) = 0;
   list->destroy = destroy;

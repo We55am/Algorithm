@@ -3,6 +3,7 @@ OBJS = list.o sort.o test.c
 CFLAGS = -std=gnu99 -Wall -Werror -pedantic
 .RECIPEPREFIX = >
 
+compile :
 test : $(OBJS)
 > $(CC) $(CFLAGS) -o test $(OBJS)
 
