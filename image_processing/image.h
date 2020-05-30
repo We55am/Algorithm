@@ -8,7 +8,7 @@
 
 #include "../sort/sort.h"
 
-#define SIZE 5
+#define SIZE 3
 #define SIGMA 1.0
 
 typedef struct _image{
